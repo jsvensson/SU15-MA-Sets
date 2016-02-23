@@ -10,7 +10,38 @@ namespace Sets
 	{
 		public static List<int> GetUnion( List<int> setA, List<int> setB )
 		{
-			return new List<int>();
+			List<int> unionSet = new List<int>();
+
+			foreach (int intA in setA)
+			{
+				bool exists = false;
+				foreach (int intB in setB)
+				{
+					if (intA == intB)
+					{
+						// A finns i B, sluta söka
+						exists = true;
+						break;
+					}
+				}
+
+				if (!exists)
+				{
+					// A finns inte i B, lägg till i unionen
+					unionSet.Add(intA);
+				}
+			}
+
+			// unionSet innehåller nu (A \ B)
+			// Vi har sökt igenom hela A, lägg till allt från B
+			foreach (int intB in setB)
+			{
+				unionSet.Add(intB);
+			}
+
+			// Sortera unionen innan vi returnerar den
+			unionSet.Sort();
+			return unionSet;
 		}
 
 		public static List<int> GetIntersection(List<int> setA, List<int> setB)
