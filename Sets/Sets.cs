@@ -27,16 +27,25 @@ namespace Sets
 
 				if (!exists)
 				{
-					// A finns inte i B, lägg till i unionen
+					// A finns inte i B, lägg till A i unionen
 					unionSet.Add(intA);
 				}
 			}
 
 			// unionSet innehåller nu (A \ B)
-			// Vi har sökt igenom hela A, lägg till allt från B
+			// Vi har sökt igenom hela A, lägg till allt från B som inte redan finns i unionen
 			foreach (int intB in setB)
 			{
-				unionSet.Add(intB);
+				bool exists = false;
+				foreach (int unionInt in unionSet)
+				{
+					exists = (intB == unionInt);
+					break;
+				}
+				if (!exists)
+				{
+					unionSet.Add(intB);
+				}
 			}
 
 			// Sortera unionen innan vi returnerar den

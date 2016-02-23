@@ -38,8 +38,8 @@ namespace Sets.Tests
 		[TestMethod()]
 		public void GetUnion_Test_Duplicates()
 		{
-			List<int> setA = new List<int> { 3, 3 };
-			List<int> setB = new List<int> { 3 };
+			List<int> setA = new List<int> { 3, 3, 3, 3 };
+			List<int> setB = new List<int> { 3, 3, 3 };
 			List<int> exp = new List<int> { 3 };
 
 			List<int> res = Sets.GetUnion(setA, setB);
