@@ -59,19 +59,34 @@ namespace Sets
 
 			foreach (int intA in setA)
 			{
-				bool exists = false;
+				bool existsInB = false;
 				foreach (int intB in setB)
 				{
 					if (intA == intB)
 					{
 						// element A finns i B
-						exists = true;
+						existsInB = true;
 						break;
 					}
 				}
-				if (exists)
+
+				// Om A finns i B...
+				if (existsInB)
 				{
-					intersectionSet.Add(intA);
+					// Hantera dubletter - finns intA redan som element i snittet?
+					bool alreadyAdded = false;
+					foreach (int i in intersectionSet)
+					{
+						if (intA != i) continue;
+						alreadyAdded = true;
+						break;
+					}
+										
+					// lägg till intA om den inte redan finns som element i snittet
+					if (!alreadyAdded)
+					{
+						intersectionSet.Add(intA);
+					}
 				}
 			}
 
