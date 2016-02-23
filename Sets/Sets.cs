@@ -69,12 +69,35 @@ namespace Sets
 			// Sortera och svara
 			intersectionSet.Sort();
 			return intersectionSet;
-
 		}
 
 		public static List<int> GetDifference(List<int> setA, List<int> setB)
 		{
-			return new List<int>();
+			List<int> differenceSet = new List<int>();
+
+			foreach (int intA in setA)
+			{
+				bool exists = false;
+				foreach (int intB in setB)
+				{
+					if (intA == intB)
+					{
+						// A finns i B, sluta söka
+						exists = true;
+						break;
+					}
+				}
+
+				if (!exists)
+				{
+					// A finns inte i B, lägg till i differensen
+					differenceSet.Add(intA);
+				}
+			}
+
+			// Sortera och svara
+			differenceSet.Sort();
+			return differenceSet;
 		}
 
 		public static bool HasMember(List<int> setA, int elem)

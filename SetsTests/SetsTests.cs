@@ -97,6 +97,57 @@ namespace Sets.Tests
 			Assert.IsTrue(ResIsValid(res, exp));
 		}
 
+		// Testa GetDifference()
+
+		[TestMethod()]
+		public void GetDifference_Has_Difference_No_Intersection()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 4, 5, 6 };
+
+			List<int> exp = new List<int>() { 1, 2, 3 };
+			List<int> res = Sets.GetDifference(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetDifference_Has_Difference_Has_Intersection()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 3, 4, 5 };
+
+			List<int> exp = new List<int>() { 1, 2 };
+			List<int> res = Sets.GetDifference(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetDifference_First_Set_Empty()
+		{
+			List<int> setA = new List<int> { };
+			List<int> setB = new List<int> { 4, 5, 6 };
+
+			List<int> exp = new List<int>() { };
+			List<int> res = Sets.GetDifference(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetDifference_Second_Set_Empty()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { };
+
+			List<int> exp = new List<int>() { 1, 2, 3 };
+			List<int> res = Sets.GetDifference(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+
 		// Testa ResIsValid()
 
 		[TestMethod()]
