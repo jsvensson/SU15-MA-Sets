@@ -47,6 +47,58 @@ namespace Sets.Tests
 			Assert.IsTrue(ResIsValid(res, exp));
 		}
 
+		// Testa GetIntersection()
+
+		[TestMethod()]
+		public void GetIntersection_Has_Intersection()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 3, 4, 5 };
+
+			List<int> exp = new List<int>() { 3 };
+			List<int> res = Sets.GetIntersection(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetIntersection_No_Intersection()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 4, 5, 6 };
+
+			List<int> exp = new List<int>() { };
+			List<int> res = Sets.GetIntersection(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetIntersection_Equal_Sets()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 1, 2, 3 };
+
+			List<int> exp = new List<int>() { 1, 2, 3 };
+			List<int> res = Sets.GetIntersection(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetIntersection_One_Empty_Set()
+		{
+			List<int> setA = new List<int> { 1, 2, 3};
+			List<int> setB = new List<int> { };
+
+			List<int> exp = new List<int>() { };
+			List<int> res = Sets.GetIntersection(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		// Testa ResIsValid()
+
 		[TestMethod()]
 		public void ResIsValid_Test_Equal_Sorted_Sets()
 		{
@@ -83,6 +135,26 @@ namespace Sets.Tests
 
 			Assert.IsFalse(ResIsValid(res, exp));
 		}
+
+		// Testa HasMember()
+
+		//[TestMethod()]
+		//public void HasMember_Int_Exists_In_Set()
+		//{
+		//	List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
+		//	int expectedInt = 4;
+
+		//	Assert.IsTrue(Sets.HasMember(testSet, expectedInt));
+		//}
+
+		//[TestMethod()]
+		//public void HasMember_Int_Does_Not_Exist_In_Set()
+		//{
+		//	List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
+		//	int expectedInt = 17;
+
+		//	Assert.IsFalse(Sets.HasMember(testSet, expectedInt));
+		//}
 
 	}
 }

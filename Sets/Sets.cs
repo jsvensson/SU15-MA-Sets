@@ -46,7 +46,30 @@ namespace Sets
 
 		public static List<int> GetIntersection(List<int> setA, List<int> setB)
 		{
-			return new List<int>();
+			List<int> intersectionSet = new List<int>();
+
+			foreach (int intA in setA)
+			{
+				bool exists = false;
+				foreach (int intB in setB)
+				{
+					if (intA == intB)
+					{
+						// element A finns i B
+						exists = true;
+						break;
+					}
+				}
+				if (exists)
+				{
+					intersectionSet.Add(intA);
+				}
+			}
+
+			// Sortera och svara
+			intersectionSet.Sort();
+			return intersectionSet;
+
 		}
 
 		public static List<int> GetDifference(List<int> setA, List<int> setB)
