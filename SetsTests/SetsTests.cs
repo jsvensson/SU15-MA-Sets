@@ -201,23 +201,32 @@ namespace Sets.Tests
 
 		// Testa HasMember()
 
-		//[TestMethod()]
-		//public void HasMember_Int_Exists_In_Set()
-		//{
-		//	List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
-		//	int expectedInt = 4;
+		[TestMethod()]
+		public void HasMember_Int_Exists_In_Set()
+		{
+			List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
+			int expectedInt = 4;
 
-		//	Assert.IsTrue(Sets.HasMember(testSet, expectedInt));
-		//}
+			Assert.IsTrue(Sets.HasMember(testSet, expectedInt));
+		}
 
-		//[TestMethod()]
-		//public void HasMember_Int_Does_Not_Exist_In_Set()
-		//{
-		//	List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
-		//	int expectedInt = 17;
+		[TestMethod()]
+		public void HasMember_Int_Does_Not_Exist_In_Set()
+		{
+			List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
+			int expectedInt = 17;
 
-		//	Assert.IsFalse(Sets.HasMember(testSet, expectedInt));
-		//}
+			Assert.IsFalse(Sets.HasMember(testSet, expectedInt));
+		}
+
+		[TestMethod()]
+		public void HasMember_On_Empty_Set()
+		{
+			List<int> testSet = new List<int>() { };
+			int expectedInt = 17;
+
+			Assert.IsFalse(Sets.HasMember(testSet, expectedInt));
+		}
 
 	}
 }
