@@ -203,15 +203,6 @@ namespace Sets.Tests
 			Assert.IsFalse(ResIsValid(setA, setB));
 		}
 
-		[TestMethod()]
-		public void ResIsValid_Test_Equal_Sets_Not_Sorted()
-		{
-			List<int> res = new List<int> { 3, 2, 1 };
-			List<int> exp = new List<int> { 1, 2, 3 };
-
-			Assert.IsFalse(ResIsValid(res, exp));
-		}
-
 		// Testa HasMember()
 
 		[TestMethod()]
