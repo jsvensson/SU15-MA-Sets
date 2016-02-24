@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +15,7 @@ namespace Sets
 
 			foreach (int intA in setA)
 			{
-				bool exists = false;
-				foreach (int intB in setB)
-				{
-					if (intA == intB)
-					{
-						// A finns i B, sluta söka
-						exists = true;
-						break;
-					}
-				}
-
-				if (!exists)
+				if (!HasMember(setB, intA))
 				{
 					// A finns inte i B, lägg till A i unionen
 					unionSet.Add(intA);
@@ -36,13 +26,7 @@ namespace Sets
 			// Vi har sökt igenom hela A, lägg till allt från B som inte redan finns i unionen
 			foreach (int intB in setB)
 			{
-				bool exists = false;
-				foreach (int unionInt in unionSet)
-				{
-					exists = (intB == unionInt);
-					break;
-				}
-				if (!exists)
+				if (!HasMember(unionSet, intB))
 				{
 					unionSet.Add(intB);
 				}
@@ -59,31 +43,12 @@ namespace Sets
 
 			foreach (int intA in setA)
 			{
-				bool existsInB = false;
-				foreach (int intB in setB)
+				// Om intA finns i setB...
+				if (HasMember(setB, intA))
 				{
-					if (intA == intB)
-					{
-						// element A finns i B
-						existsInB = true;
-						break;
-					}
-				}
-
-				// Om A finns i B...
-				if (existsInB)
-				{
-					// Hantera dubletter - finns intA redan som element i snittet?
-					bool alreadyAdded = false;
-					foreach (int i in intersectionSet)
-					{
-						if (intA != i) continue;
-						alreadyAdded = true;
-						break;
-					}
-										
+					// Hantera dubletter - finns intA redan som element i snittet?										
 					// lägg till intA om den inte redan finns som element i snittet
-					if (!alreadyAdded)
+					if (!HasMember(intersectionSet, intA))
 					{
 						intersectionSet.Add(intA);
 					}
@@ -101,18 +66,7 @@ namespace Sets
 
 			foreach (int intA in setA)
 			{
-				bool exists = false;
-				foreach (int intB in setB)
-				{
-					if (intA == intB)
-					{
-						// A finns i B, sluta söka
-						exists = true;
-						break;
-					}
-				}
-
-				if (!exists)
+				if (!HasMember(setB, intA))
 				{
 					// A finns inte i B, lägg till i differensen
 					differenceSet.Add(intA);
