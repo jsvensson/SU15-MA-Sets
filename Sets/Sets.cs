@@ -134,9 +134,10 @@ namespace Sets
 			bool exists = true;
 			foreach (int intA in setA)
 			{
-				if (!Sets.HasMember(setB, intA))
+				if (!HasMember(setB, intA))
 				{
 					exists = false;
+					break;
 				}
 			}
 
