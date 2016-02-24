@@ -228,5 +228,43 @@ namespace Sets.Tests
 			Assert.IsFalse(Sets.HasMember(testSet, expectedInt));
 		}
 
+		// Testa IsSubsetOf
+
+		[TestMethod()]
+		public void IsSubsetOf_Is_Subset()
+		{
+			List<int> superset = new List<int>() {1, 2, 3, 4, 5 };
+			List<int> subset   = new List<int>() {1, 2, 3 };
+
+			Assert.IsTrue(Sets.IsSubsetOf(subset, superset));
+		}
+
+		[TestMethod()]
+		public void IsSubsetOf_Is_Not_Subset()
+		{
+			List<int> superset = new List<int>() { 1, 2, 3, 4, 5 };
+			List<int> subset   = new List<int>() { 6, 7 };
+
+			Assert.IsFalse(Sets.IsSubsetOf(subset, superset));
+		}
+
+		[TestMethod()]
+		public void IsSubsetOf_Subset_Is_Empty_Set()
+		{
+			List<int> superset = new List<int>() { 1, 2, 3, 4, 5 };
+			List<int> subset   = new List<int>() { };
+
+			Assert.IsTrue(Sets.IsSubsetOf(subset, superset));
+		}
+
+		[TestMethod()]
+		public void IsSubsetOf_Superset_Is_Empty_Set()
+		{
+			List<int> superset = new List<int>() { };
+			List<int> subset = new List<int>() { 1, 2, 3, 4, 5 };
+
+			Assert.IsFalse(Sets.IsSubsetOf(subset, superset));
+		}
+
 	}
 }
