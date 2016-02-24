@@ -13,14 +13,12 @@ namespace Sets.Tests
 	{
 		public static bool ResIsValid( List<int> res, List<int> exp )
 		{
-			List<int> sortedExp = new List<int>();
-			foreach (int i in exp)
-			{
-				sortedExp.Add(i);
-			}
+			List<int> sortedExp = exp.ToList();
+			List<int> sortedRes = res.ToList();
 			sortedExp.Sort();
+			sortedRes.Sort();
 
-			return sortedExp.SequenceEqual(res);
+			return sortedExp.SequenceEqual(sortedRes);
 		}
 
 		[TestMethod()]
