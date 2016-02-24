@@ -47,7 +47,7 @@ namespace Sets
 				if (HasMember(setB, intA))
 				{
 					// Hantera dubletter - finns intA redan som element i snittet?										
-					// lägg till intA om den inte redan finns som element i snittet
+					// Om inte, lägg till intA i snittet.
 					if (!HasMember(intersectionSet, intA))
 					{
 						intersectionSet.Add(intA);
