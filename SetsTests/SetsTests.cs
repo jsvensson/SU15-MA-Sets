@@ -136,6 +136,19 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
+		public void GetDifference_Has_Difference_Has_Intersection_With_Duplicates()
+		{
+			List<int> setA = new List<int> { 1, 2, 3, 3 };
+			List<int> setB = new List<int> { 3, 3, 4, 5 };
+
+			List<int> exp = new List<int>() { 1, 2 };
+			List<int> res = Sets.GetDifference(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+
+		[TestMethod()]
 		public void GetDifference_First_Set_Empty()
 		{
 			List<int> setA = new List<int> { };
