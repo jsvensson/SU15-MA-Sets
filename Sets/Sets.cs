@@ -46,7 +46,8 @@ namespace Sets
 				// Om intA finns i setB...
 				if (HasMember(setB, intA))
 				{
-					// Hantera dubletter - finns intA redan som element i snittet?										
+					// Hantera dubletter - finns intA redan som element i snittet?
+					// Kan uppstå om samma element n finns i både setA och setB										
 					// Om inte, lägg till intA i snittet.
 					if (!HasMember(intersectionSet, intA))
 					{
