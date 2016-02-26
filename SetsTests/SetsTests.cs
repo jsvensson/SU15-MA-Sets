@@ -28,8 +28,8 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { 1, 7, 3 };
 			List<int> setB = new List<int> { 2, 5 };
-			List<int> exp = new List<int> { 2, 1, 3, 7, 5 };
 
+			List<int> exp = new List<int> { 1, 2, 5, 7, 3 };
 			List<int> res = Sets.GetUnion(setA, setB);
 
 			Assert.IsTrue( ResIsValid(res, exp) );
@@ -40,6 +40,7 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2, 3 };
+
 			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = Sets.GetUnion(setA, setB);
 
@@ -63,6 +64,7 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { };
+
 			List<int> exp = new List<int> { };
 			List<int> res = Sets.GetUnion(setA, setB);
 
@@ -73,6 +75,7 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { 1, 2, 3 };
+
 			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = Sets.GetUnion(setA, setB);
 
@@ -83,6 +86,7 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { };
+
 			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = Sets.GetUnion(setA, setB);
 
@@ -235,7 +239,6 @@ namespace Sets.Tests
 			Assert.IsTrue(ResIsValid(exp, res));
 		}
 
-
 		[TestMethod()]
 		public void ResIsValid__Not_Equal_Sets()
 		{
@@ -325,7 +328,7 @@ namespace Sets.Tests
 		public void IsSubsetOf__Superset_Is_Empty()
 		{
 			List<int> superset = new List<int>() { };
-			List<int> subset = new List<int>() { 1, 2, 3, 4, 5 };
+			List<int> subset   = new List<int>() { 1, 2, 3, 4, 5 };
 
 			Assert.IsFalse(Sets.IsSubsetOf(subset, superset));
 		}
