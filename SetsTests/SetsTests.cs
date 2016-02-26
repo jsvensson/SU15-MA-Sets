@@ -21,6 +21,8 @@ namespace Sets.Tests
 			return sortedExp.SequenceEqual(sortedRes);
 		}
 
+		// Testa GetUnion()
+
 		[TestMethod()]
 		public void GetUnion_Sizes_3_And_2()
 		{
@@ -34,12 +36,11 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetUnion_Test_Duplicates()
+		public void GetUnion_Test_Empty_Sets()
 		{
-			List<int> setA = new List<int> { 3, 3, 3, 3 };
-			List<int> setB = new List<int> { 3, 3, 3 };
-			List<int> exp = new List<int> { 3 };
-
+			List<int> setA = new List<int> { };
+			List<int> setB = new List<int> { };
+			List<int> exp = new List<int> { };
 			List<int> res = Sets.GetUnion(setA, setB);
 
 			Assert.IsTrue(ResIsValid(res, exp));

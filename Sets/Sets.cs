@@ -79,17 +79,15 @@ namespace Sets
 
 		public static bool IsSubsetOf(List<int> setA, List<int> setB)
 		{
-			bool exists = true;
 			foreach (int intA in setA)
 			{
 				if (!HasMember(setB, intA))
 				{
-					exists = false;
-					break;
+					return false;
 				}
 			}
 
-			return exists;
+			return true;
 		}
 
 		public static void Main(string[] args)
