@@ -22,17 +22,11 @@ namespace Sets
 				}
 			}
 
-			// unionSet innehåller nu (A \ B)
-			// Vi har sökt igenom hela A, lägg till allt från B som inte redan finns i unionen
 			foreach (int intB in setB)
 			{
-				if (!HasMember(unionSet, intB))
-				{
-					unionSet.Add(intB);
-				}
+				unionSet.Add(intB);
 			}
 
-			// Sortera unionen innan vi returnerar den
 			unionSet.Sort();
 			return unionSet;
 		}
@@ -43,20 +37,12 @@ namespace Sets
 
 			foreach (int intA in setA)
 			{
-				// Om intA finns i setB...
 				if (HasMember(setB, intA))
 				{
-					// Hantera dubletter - finns intA redan som element i snittet?
-					// Kan uppstå om samma element n finns i både setA och setB										
-					// Om inte, lägg till intA i snittet.
-					if (!HasMember(intersectionSet, intA))
-					{
-						intersectionSet.Add(intA);
-					}
+					intersectionSet.Add(intA);
 				}
 			}
 
-			// Sortera och svara
 			intersectionSet.Sort();
 			return intersectionSet;
 		}
