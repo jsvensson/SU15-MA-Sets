@@ -116,6 +116,18 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
+		public void GetIntersection__SetA_Is_Empty()
+		{
+			List<int> setA = new List<int> { };
+			List<int> setB = new List<int> { 1, 2, 3 };
+
+			List<int> exp = new List<int>() { };
+			List<int> res = Sets.GetIntersection(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
 		public void GetIntersection__SetB_Is_Empty()
 		{
 			List<int> setA = new List<int> { 1, 2, 3};
