@@ -67,7 +67,14 @@ namespace Sets
 
 		public static bool HasMember(List<int> setA, int elem)
 		{
-			return setA.Any(intA => intA == elem);
+			foreach (int intA in setA)
+			{
+				if (intA == elem)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public static bool IsSubsetOf(List<int> setA, List<int> setB)
