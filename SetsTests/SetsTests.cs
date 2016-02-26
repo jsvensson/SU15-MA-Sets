@@ -47,6 +47,18 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
+		public void GetUnion__Element_Order_Shouldnt_Matter()
+		{
+			List<int> setA = new List<int> { 1, 7, 3 };
+			List<int> setB = new List<int> { 2, 5 };
+
+			List<int> exp = new List<int> { 7, 5, 1, 2, 3 };
+			List<int> res = Sets.GetUnion(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
 		public void GetUnion__Empty_Sets()
 		{
 			List<int> setA = new List<int> { };
