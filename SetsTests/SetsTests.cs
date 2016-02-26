@@ -203,7 +203,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void ResIsValid_Test_Equal_Unsorted_Sets()
+		public void ResIsValid_Element_Order_Shouldnt_Matter()
 		{
 			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = new List<int> { 3, 2, 1 };
@@ -217,6 +217,24 @@ namespace Sets.Tests
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2 };
+
+			Assert.IsFalse(ResIsValid(setA, setB));
+		}
+
+		[TestMethod()]
+		public void ResIsValid_First_Set_Empty()
+		{
+			List<int> setA = new List<int> { };
+			List<int> setB = new List<int> { 1, 2, 3 };
+
+			Assert.IsFalse(ResIsValid(setA, setB));
+		}
+
+		[TestMethod()]
+		public void ResIsValid_Second_Set_Empty()
+		{
+			List<int> setA = new List<int> { 1, 2, 3};
+			List<int> setB = new List<int> { };
 
 			Assert.IsFalse(ResIsValid(setA, setB));
 		}
