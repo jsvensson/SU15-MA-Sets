@@ -61,18 +61,6 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetIntersection_Has_Intersection_With_Duplicate()
-		{
-			List<int> setA = new List<int> { 1, 2, 3, 3 };
-			List<int> setB = new List<int> { 3, 3, 4, 5 };
-
-			List<int> exp = new List<int>() { 3 };
-			List<int> res = Sets.GetIntersection(setA, setB);
-
-			Assert.IsTrue(ResIsValid(res, exp));
-		}
-
-		[TestMethod()]
 		public void GetIntersection_No_Intersection()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
