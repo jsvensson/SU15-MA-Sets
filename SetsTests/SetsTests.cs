@@ -36,11 +36,42 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetUnion_Test_Empty_Sets()
+		public void GetUnion_Test_Identical_Sets()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { 1, 2, 3 };
+			List<int> exp = new List<int> { 1, 2, 3 };
+			List<int> res = Sets.GetUnion(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		[TestMethod()]
+		public void GetUnion_Empty_Sets()
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { };
 			List<int> exp = new List<int> { };
+			List<int> res = Sets.GetUnion(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		public void GetUnion_First_Set_Empty()
+		{
+			List<int> setA = new List<int> { };
+			List<int> setB = new List<int> { 1, 2, 3 };
+			List<int> exp = new List<int> { 1, 2, 3 };
+			List<int> res = Sets.GetUnion(setA, setB);
+
+			Assert.IsTrue(ResIsValid(res, exp));
+		}
+
+		public void GetUnion_Second_Set_Empty()
+		{
+			List<int> setA = new List<int> { 1, 2, 3 };
+			List<int> setB = new List<int> { };
+			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = Sets.GetUnion(setA, setB);
 
 			Assert.IsTrue(ResIsValid(res, exp));
