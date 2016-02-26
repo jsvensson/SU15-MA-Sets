@@ -24,7 +24,7 @@ namespace Sets.Tests
 		// Testa GetUnion()
 
 		[TestMethod()]
-		public void GetUnion_Sizes_3_And_2()
+		public void GetUnion__Sizes_3_And_2()
 		{
 			List<int> setA = new List<int> { 1, 7, 3 };
 			List<int> setB = new List<int> { 2, 5 };
@@ -36,7 +36,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetUnion_Test_Identical_Sets()
+		public void GetUnion__Identical_Sets()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2, 3 };
@@ -47,7 +47,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetUnion_Empty_Sets()
+		public void GetUnion__Empty_Sets()
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { };
@@ -57,7 +57,7 @@ namespace Sets.Tests
 			Assert.IsTrue(ResIsValid(res, exp));
 		}
 
-		public void GetUnion_First_Set_Empty()
+		public void GetUnion__First_Set_Is_Empty()
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { 1, 2, 3 };
@@ -67,7 +67,7 @@ namespace Sets.Tests
 			Assert.IsTrue(ResIsValid(res, exp));
 		}
 
-		public void GetUnion_Second_Set_Empty()
+		public void GetUnion__Second_Set_Is_Empty()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { };
@@ -80,7 +80,7 @@ namespace Sets.Tests
 		// Testa GetIntersection()
 
 		[TestMethod()]
-		public void GetIntersection_Has_Intersection_No_Duplicate()
+		public void GetIntersection__Has_Intersection_No_Duplicates()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 3, 4, 5 };
@@ -92,7 +92,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetIntersection_No_Intersection()
+		public void GetIntersection__No_Intersection()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 4, 5, 6 };
@@ -104,7 +104,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetIntersection_Equal_Sets()
+		public void GetIntersection__Equal_Sets()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2, 3 };
@@ -116,7 +116,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetIntersection_One_Empty_Set()
+		public void GetIntersection__SetB_Is_Empty()
 		{
 			List<int> setA = new List<int> { 1, 2, 3};
 			List<int> setB = new List<int> { };
@@ -130,7 +130,7 @@ namespace Sets.Tests
 		// Testa GetDifference()
 
 		[TestMethod()]
-		public void GetDifference_Has_Difference_No_Intersection()
+		public void GetDifference__Has_Difference__No_Intersection()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 4, 5, 6 };
@@ -142,7 +142,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetDifference_Has_Difference_Has_Intersection()
+		public void GetDifference__Has_Difference__Has_Intersection()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 3, 4, 5 };
@@ -154,7 +154,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetDifference_Has_Difference_Has_Intersection_With_Duplicates()
+		public void GetDifference__Has_Difference__Has_Intersection_With_Duplicates()
 		{
 			List<int> setA = new List<int> { 1, 2, 3, 3 };
 			List<int> setB = new List<int> { 3, 3, 4, 5 };
@@ -167,7 +167,7 @@ namespace Sets.Tests
 
 
 		[TestMethod()]
-		public void GetDifference_First_Set_Empty()
+		public void GetDifference__SetA_Is_Empty()
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { 4, 5, 6 };
@@ -179,7 +179,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void GetDifference_Second_Set_Empty()
+		public void GetDifference__SetB__Is_Empty()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { };
@@ -194,7 +194,7 @@ namespace Sets.Tests
 		// Testa ResIsValid()
 
 		[TestMethod()]
-		public void ResIsValid_Test_Equal_Sorted_Sets()
+		public void ResIsValid__Equal_Sorted_Sets()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2, 3 };
@@ -203,7 +203,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void ResIsValid_Element_Order_Shouldnt_Matter()
+		public void ResIsValid__Element_Order_Shouldnt_Matter()
 		{
 			List<int> exp = new List<int> { 1, 2, 3 };
 			List<int> res = new List<int> { 3, 2, 1 };
@@ -213,7 +213,7 @@ namespace Sets.Tests
 
 
 		[TestMethod()]
-		public void ResIsValid_Test_Not_Equal_Sets()
+		public void ResIsValid__Not_Equal_Sets()
 		{
 			List<int> setA = new List<int> { 1, 2, 3 };
 			List<int> setB = new List<int> { 1, 2 };
@@ -222,7 +222,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void ResIsValid_First_Set_Empty()
+		public void ResIsValid__SetA_Is_Empty()
 		{
 			List<int> setA = new List<int> { };
 			List<int> setB = new List<int> { 1, 2, 3 };
@@ -231,7 +231,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void ResIsValid_Second_Set_Empty()
+		public void ResIsValid__SetB_Is_Empty()
 		{
 			List<int> setA = new List<int> { 1, 2, 3};
 			List<int> setB = new List<int> { };
@@ -242,7 +242,7 @@ namespace Sets.Tests
 		// Testa HasMember()
 
 		[TestMethod()]
-		public void HasMember_Int_Exists_In_Set()
+		public void HasMember__Element_Exists_In_Set()
 		{
 			List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
 			int expectedInt = 4;
@@ -251,7 +251,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void HasMember_Int_Does_Not_Exist_In_Set()
+		public void HasMember__Element_Does_Not_Exist_In_Set()
 		{
 			List<int> testSet = new List<int>() { 1, 2, 3, 4, 5 };
 			int expectedInt = 17;
@@ -260,7 +260,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void HasMember_On_Empty_Set()
+		public void HasMember__Empty_Set()
 		{
 			List<int> testSet = new List<int>() { };
 			int expectedInt = 17;
@@ -271,7 +271,7 @@ namespace Sets.Tests
 		// Testa IsSubsetOf
 
 		[TestMethod()]
-		public void IsSubsetOf_Is_Subset()
+		public void IsSubsetOf__Is_Subset()
 		{
 			List<int> superset = new List<int>() {1, 2, 3, 4, 5 };
 			List<int> subset   = new List<int>() {1, 2, 3 };
@@ -280,7 +280,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void IsSubsetOf_Is_Not_Subset()
+		public void IsSubsetOf__Is_Not_Subset()
 		{
 			List<int> superset = new List<int>() { 1, 2, 3, 4, 5 };
 			List<int> subset   = new List<int>() { 6, 7 };
@@ -289,7 +289,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void IsSubsetOf_Subset_Is_Empty_Set()
+		public void IsSubsetOf__Subset_Is_Empty()
 		{
 			List<int> superset = new List<int>() { 1, 2, 3, 4, 5 };
 			List<int> subset   = new List<int>() { };
@@ -298,7 +298,7 @@ namespace Sets.Tests
 		}
 
 		[TestMethod()]
-		public void IsSubsetOf_Superset_Is_Empty_Set()
+		public void IsSubsetOf__Superset_Is_Empty()
 		{
 			List<int> superset = new List<int>() { };
 			List<int> subset = new List<int>() { 1, 2, 3, 4, 5 };
