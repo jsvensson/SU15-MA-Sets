@@ -298,13 +298,23 @@ namespace Sets.Tests
 		// Testa IsSubsetOf
 
 		[TestMethod()]
-		public void IsSubsetOf__Is_Subset()
+		public void IsSubsetOf__Is_Proper_Subset()
 		{
 			List<int> superset = new List<int>() {1, 2, 3, 4, 5 };
 			List<int> subset   = new List<int>() {1, 2, 3 };
 
 			Assert.IsTrue(Sets.IsSubsetOf(subset, superset));
 		}
+
+		[TestMethod()]
+		public void IsSubsetOf__Is_Subset()
+		{
+			List<int> superset = new List<int>() { 1, 2, 3, 4, 5 };
+			List<int> subset = new List<int>() { 1, 2, 3, 4, 5 };
+
+			Assert.IsTrue(Sets.IsSubsetOf(subset, superset));
+		}
+
 
 		[TestMethod()]
 		public void IsSubsetOf__Is_Not_Subset()
