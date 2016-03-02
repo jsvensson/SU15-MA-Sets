@@ -13,12 +13,27 @@ namespace Sets.Tests
 	{
 		public static bool ResIsValid( List<int> res, List<int> exp )
 		{
-			List<int> sortedExp = exp.ToList();
-			List<int> sortedRes = res.ToList();
-			sortedExp.Sort();
-			sortedRes.Sort();
+			// Var osäker på vad som var godkänt att använda - skrev först nedanstående med
+			// Sort(), ersatte sedan med en loop med HasMember() som även den testas nedan.
+			// Bägge lösningar klarar samtliga tester.
 
-			return sortedExp.SequenceEqual(sortedRes);
+			//List<int> sortedExp = exp.ToList();
+			//List<int> sortedRes = res.ToList();
+			//sortedExp.Sort();
+			//sortedRes.Sort();
+			//return sortedExp.SequenceEqual(sortedRes);
+
+			if (res.Count != exp.Count)
+				return false;
+
+			foreach (int resElement in res)
+			{
+				if (!Sets.HasMember(exp, resElement))
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 
 		// Testa GetUnion()
